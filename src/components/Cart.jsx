@@ -1,5 +1,6 @@
 import React from "react";
 import CartItem from "./CartItem";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   return (
@@ -17,7 +18,9 @@ const Cart = () => {
           <CartItem />
           <CartItem />
         </div>
+
       </div>
+        <button className="bg-red-500 w-full height-[50px]"><Link to={"/cart-page"}>Check Out</Link></button>
     </div>
   );
 };
