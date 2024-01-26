@@ -2,9 +2,11 @@ import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import Cart from "./Cart";
 import { Link } from "react-router-dom";
+import { CartState } from "../context/context";
 
 const Header = () => {
   const [openCart, setOpenCart] = useState(false);
+  const {cartState:{cart}} = CartState();
 
   const toggleCart = () =>{ 
     console.log("clicked")
@@ -26,10 +28,10 @@ const Header = () => {
       <div className="flex-grow cursor-pointer" onClick={toggleCart}>
          <div className="flex justify-center items-center bg-[#FFA447] gap-3 w-1/4 m-auto p-2 rounded-md">
             <FaShoppingCart className=" h-[30px] w-[30px]" />
-            <span className=" text-white font-bold text-xl">3</span>
+            <span className=" text-white font-bold text-xl">{cart.length}</span>
           </div>
       </div>
-        <div className="">
+        <div className="bg-slate-500 ">
             {openCart && <Cart close={toggleCart}/>}
         </div>
     </div>
