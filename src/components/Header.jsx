@@ -9,7 +9,6 @@ const Header = () => {
   const {cartState:{cart}} = CartState();
 
   const toggleCart = () =>{ 
-    console.log("clicked")
     setOpenCart(prev => !prev)
   }
   return (

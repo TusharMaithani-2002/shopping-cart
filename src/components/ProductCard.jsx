@@ -7,6 +7,16 @@ const ProductCard = ({product}) => {
   const {cartState,cartDispatch} = CartState();
 
   const hanleClick = () => {
+
+    // check if already present in cart
+    const {cart} = cartState;
+
+    const inCart = cart.find(item=>item.product.id === product.id) 
+    if(inCart) {
+      alert("Already in Cart! please increase quantity there.")
+      return;
+    }
+
     cartDispatch({
       ...cartState,
       carts:cartState.cart.push({

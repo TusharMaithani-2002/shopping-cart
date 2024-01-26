@@ -6,7 +6,6 @@ import { CartState } from "../context/context";
 const Cart = () => {
 
   const {cartState:{cart}} = CartState();
-  console.log(cart)
   return (
     <div className="flex flex-col absolute text-black right-5 bg-white border border-black top-[90px] z-20 w-2/5">
       <div className="flex flex-col items-center">
@@ -18,7 +17,7 @@ const Cart = () => {
             
           {
             cart.length ? cart.map((cartItem) => (
-              <CartItem item = {cartItem}/>
+              <CartItem item = {cartItem} key={cartItem.product.id}/>
             )) : (<div>Cart is empty</div>)
           }
           </div>

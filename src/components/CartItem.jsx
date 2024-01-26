@@ -1,11 +1,21 @@
 import React from 'react'
 import {FaTrash} from "react-icons/fa"
+import { CartState } from '../context/context'
 
 const CartItem = ({item}) => {
 
-  console.log(item)
+  const {cartState,cartDispatch} = CartState();
 
   const {product,qty} = item;
+  const handleDelete = () => {
+
+    
+      cartDispatch({
+        type:"REMOVE_FROM_CART",
+        payload:{id:product.id}
+      })
+  }
+
   return (
     <div className='text-center flex p-3 h-[100px] justify-between items-center' >
       <img src={product.image} alt={product.name} className='w-1/6'/>
@@ -16,7 +26,7 @@ const CartItem = ({item}) => {
       </div>
       <div>{qty}</div>
 
-      <button><FaTrash /></button>
+      <button><FaTrash onClick={handleDelete}/></button>
     </div>
   )
 }

@@ -1,5 +1,4 @@
 export const cartReducer = (state,action) => {
-
     switch(action.type) {
         case "ADD_TO_CART":
             return {...state,cart:[...state.cart,{...action.payload,qty:1}]}
@@ -7,7 +6,7 @@ export const cartReducer = (state,action) => {
         case "REMOVE_FROM_CART":
             return {
                 ...state,
-                cart:state.cart.filter((item) => item !== action.payload.id)
+                cart:state.cart.filter((item) => item.product.id !== action.payload.id)
             }
         case "CHANGE_CART_QTY":
             return {
