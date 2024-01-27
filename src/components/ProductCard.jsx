@@ -1,6 +1,5 @@
 import React from 'react'
 import StarRating from './StarRating'
-import { CartState } from '../context/context'
 import CartButton from './CartButton';
 
 const ProductCard = ({product}) => {
