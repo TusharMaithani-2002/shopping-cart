@@ -1,28 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { CartState } from '../context/context'
+import React, { useEffect, useState } from "react";
+import { CartState } from "../context/context";
 
 const CheckOutComponent = () => {
+  const [total, setTotal] = useState(0);
+  const {
+    cartState: { cart },
+    cartDispatch,
+  } = CartState();
 
-  const [total,setTotal] = useState(0);
-  const {cartState:{cart}} = CartState();
+  useEffect(() => {
+    const calc = cart.reduce((acc, curr) => {
+      return acc + parseFloat(curr.product.price * curr.qty);
+    }, 0);
+    setTotal(calc);
+  }, [cart]);
 
-  useEffect(()=>{
-    const calc = cart.reduce((acc,curr) => {
-      return acc + parseFloat(curr.product.price);
-    },0)
-    setTotal(calc)
-  },[cart])
-
+  const emptyCart = () => {
+    cartDispatch({
+      type: "EMPTY_CART",
+    });
+  };
 
   return (
-    <div className='w-full bg-orange-600'>
-      <h2>Subtotal ({cart.length}) items</h2>
+    <div className="w-full bg-red-500 h-full flex flex-col items-center">
+      <h2 className="font-bol text-4xl p-3 ">Subtotal ({cart.length}) items</h2>
 
-      <div>Total: ₹{parseFloat(total)}</div>
+      <div className="font-semibold text-2xl">Total: ₹{parseFloat(total)}</div>
 
-      <button>Proceed to Checkout</button>
+      <div className="flex justify-around gap-2">
+        <button className="btn">Proceed to Checkout</button>
+        <button onClick={emptyCart} className="btn">
+          Empty Cart
+        </button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default CheckOutComponent
+export default CheckOutComponent;

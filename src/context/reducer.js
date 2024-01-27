@@ -13,6 +13,11 @@ export const cartReducer = (state,action) => {
                 ...state,
                 cart:state.cart.map((item) => item.product.id === action.payload.id ? {...item,qty:action.payload.qty} : item)
             }
+
+        case "EMPTY_CART":
+            return {
+                ...state,cart:[]
+            }
        default:
         return state
     }

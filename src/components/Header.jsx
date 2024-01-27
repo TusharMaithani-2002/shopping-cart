@@ -25,12 +25,14 @@ const Header = () => {
         />
       </div>
       <div className="flex-grow cursor-pointer" onClick={toggleCart}>
-         <div className="flex justify-center items-center bg-[#FFA447] gap-3 w-1/4 m-auto p-2 rounded-md">
+         <div className="flex justify-center items-center bg-[#FFA447] gap-3 w-1/4 m-auto p-2 rounded-md
+         hover:bg-purple-600
+         ">
             <FaShoppingCart className=" h-[30px] w-[30px]" />
             <span className=" text-white font-bold text-xl">{cart.length}</span>
           </div>
       </div>
-        <div className="bg-slate-500 ">
+        <div className="">
             {openCart && <Cart close={toggleCart}/>}
         </div>
     </div>

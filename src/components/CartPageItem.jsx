@@ -30,7 +30,7 @@ const CartPageItem = ({item}) => {
         }
         </select></div>
 
-        <div><FaTrash /></div>
+        <div className='hover:scale-110'><FaTrash /></div>
     </div>
   )
 }

@@ -16,7 +16,7 @@ const CartPage = () => {
         ))
       }
       </section>
-      <section className='w-1/3 h-[80vh] bg-pink-700 p-4 flex justify-center items-start'>
+      <section className='w-1/3 h-[80vh] p-4 flex justify-center items-start'>
         <CheckOutComponent />
       </section>
     </div>
