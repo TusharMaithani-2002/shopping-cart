@@ -4,7 +4,7 @@ import { CartState } from '../context/context'
 
 const CartItem = ({item}) => {
 
-  const {cartState,cartDispatch} = CartState();
+  const {cartDispatch} = CartState();
 
   const {product,qty} = item;
   const handleDelete = () => {

@@ -1,9 +1,24 @@
 import React from 'react'
+import { CartState } from '../context/context'
+import CartPageItem from './CartPageItem';
+import CheckOutComponent from './CheckOutComponent';
 
 const CartPage = () => {
+
+  const {cartState:{cart}} = CartState();
+  console.log(cart)
   return (
-    <div>
-      This is my cart
+    <div className='flex'>
+      <section>
+      {
+        cart.map((item) => (
+          <CartPageItem item={item} key={item.product.id}/>
+        ))
+      }
+      </section>
+      <section>
+        <CheckOutComponent />
+      </section>
     </div>
   )
 }

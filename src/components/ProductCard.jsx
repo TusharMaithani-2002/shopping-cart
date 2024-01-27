@@ -1,30 +1,9 @@
 import React from 'react'
 import StarRating from './StarRating'
 import { CartState } from '../context/context'
+import CartButton from './CartButton';
 
 const ProductCard = ({product}) => {
-
-  const {cartState,cartDispatch} = CartState();
-
-  const hanleClick = () => {
-
-    // check if already present in cart
-    const {cart} = cartState;
-
-    const inCart = cart.find(item=>item.product.id === product.id) 
-    if(inCart) {
-      alert("Already in Cart! please increase quantity there.")
-      return;
-    }
-
-    cartDispatch({
-      ...cartState,
-      carts:cartState.cart.push({
-        product,qty:1
-      })
-    });
-    console.log("added in cart");
-  }
 
   return (
     <div className='flex flex-col justify-center p-3 rounded-md shadow-lg shadow-slate-400'>
@@ -35,10 +14,8 @@ const ProductCard = ({product}) => {
         product.fastDelivery ? "Fast Delivery" : "4 days delivery"
       }</div>
       <div className='flex items-center'>Ratings<StarRating ratings={product.ratings} /></div>
-
-      {product.inStock ? (<button className='h-[40px] bg-orange-500'
-      onClick={hanleClick}
-      >Add to Cart</button>) : (<button className='h-[40px] bg-orange-500 opacity-50' disabled>Out of Stock</button>)}
+        <CartButton product={product} />
+      
     </div>
   )
 }
