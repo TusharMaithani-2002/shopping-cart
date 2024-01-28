@@ -38,7 +38,7 @@ export const productReducers = (state,action) => {
         case "FILTER_BY_SEARCH":
             return {...state,searchQuery:action.payload};
         case "CLEAR_FILTER":
-            return {byStock:false,byFastDelivery:false,byRating:false}
+            return {byStock:false,byFastDelivery:false,byRating:0}
         default:
             return state;
     }

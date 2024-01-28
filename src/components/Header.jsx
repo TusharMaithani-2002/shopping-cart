@@ -7,7 +7,6 @@ import { CartState } from "../context/context";
 const Header = () => {
   const [openCart, setOpenCart] = useState(false);
   const {cartState:{cart}} = CartState();
-  console.log("logging header")
   const toggleCart = () =>{ 
     setOpenCart(prev => !prev)
   }

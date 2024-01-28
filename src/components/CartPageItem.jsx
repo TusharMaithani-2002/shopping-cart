@@ -3,9 +3,10 @@ import StarRating from './StarRating'
 import { FaTrash } from 'react-icons/fa';
 import { CartState } from '../context/context';
 const CartPageItem = ({item}) => {
+
     const {product,qty} = item;
 
-    const {cartState,cartDispatch} = CartState(); 
+    const {cartDispatch} = CartState(); 
   return (
     <div className='flex border border-b-0 border-black justify-around px-10 items-center'>
         <img src={product.image} alt={product.name} className='w-1/6 h-[80px]'/>
@@ -25,7 +26,7 @@ const CartPageItem = ({item}) => {
         }>
         {
             [...new Array(product.inStock)].map((_,i)=>(
-                <option value={qty}>{i+1}</option>
+                <option value={qty} selected={qty===i+1 ? true:false}>{i+1}</option>
             ))
         }
         </select></div>

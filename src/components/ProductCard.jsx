@@ -12,7 +12,11 @@ const ProductCard = ({product}) => {
       <div className='font-bold'>{
         product.fastDelivery ? "Fast Delivery" : "4 days delivery"
       }</div>
-      <div className='flex items-center'>Ratings<StarRating ratings={product.ratings} /></div>
+      <div className='flex items-center sm:flex-wrap'>
+        <span className='max-sm:text-[0px]'>
+        Ratings
+        </span>
+        <StarRating ratings={product.ratings} /></div>
         <CartButton product={product} />
       
     </div>

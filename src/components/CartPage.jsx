@@ -6,9 +6,8 @@ import CheckOutComponent from './CheckOutComponent';
 const CartPage = () => {
 
   const {cartState:{cart}} = CartState();
-  console.log(cart)
   return (
-    <div className='flex justify-around items-start mt-5 px-10'>
+    <div className='flex justify-around  mt-5 px-10'>
       <section className='w-2/3 mr-5 border-b border-black'>
       {
         cart.map((item) => (

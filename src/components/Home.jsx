@@ -22,6 +22,9 @@ const Home = () => {
     if(productState.sort === "highToLow") sortedProducts.sort((a,b)=>b.price-a.price);
   }
 
+  if(productState.byRating > 0) {
+    sortedProducts = sortedProducts.filter((prod) => prod.ratings === productState.byRating)
+  }
 
   return (
     <div className='flex'>

@@ -7,7 +7,7 @@ const Cart = () => {
 
   const {cartState:{cart}} = CartState();
   return (
-    <div className="flex flex-col absolute text-black right-5 bg-white border border-black top-[90px] z-20 w-2/5">
+    <div className="flex flex-col absolute text-black right-5 bg-white border border-black top-[90px] z-20 w-2/5 h-[40vh] overflow-x-hidden overflow-y-auto">
       <div className="flex flex-col items-center">
 
 
@@ -25,7 +25,7 @@ const Cart = () => {
         </div>
 
       </div>
-        <button className="bg-red-500  height-[50px]"><Link to={"/cart-page"}>Check Out</Link></button>
+        <button className="bg-red-500 p-3 text-lg font-bold"><Link to={"/cart-page"}>Check Out</Link></button>
     </div>
   );
 };
