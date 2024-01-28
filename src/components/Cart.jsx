@@ -7,7 +7,7 @@ const Cart = () => {
 
   const {cartState:{cart}} = CartState();
   return (
-    <div className="flex flex-col absolute text-black right-5 bg-white border border-black top-[90px] z-20 w-2/5 h-[40vh] overflow-x-hidden overflow-y-auto">
+    <div className="flex flex-col absolute text-black right-5 bg-white border border-black top-[90px] z-20 w-2/5 max-h-[40vh] overflow-x-hidden overflow-y-auto">
       <div className="flex flex-col items-center">
 
 
